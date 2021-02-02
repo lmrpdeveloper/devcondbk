@@ -176,6 +176,8 @@ class AuthController extends Controller
             $properties = Unit::select(['id', 'name'])
             ->where('id_owner', $user['id'])
             ->get();
+
+            $array['user']['properties'] = $properties;
         } else {
             $array['error'] = $validator->errors()->first();
             return $array;
